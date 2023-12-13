@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Logo from '../../assets/logo-light.png'
 import SideDropdown from '../Molecules/SideDropdown'
 
-export default function Sidebar() {
+export default function Sidebar({expanded}) {
 
     const [active, setActive] = useState(0)
 
@@ -18,7 +18,7 @@ export default function Sidebar() {
 
 
     return (
-        <div className='max-w-[240px] bg-slate-700 min-h-screen text-sm text-white font-medium font-primary'>
+        <div className={`${expanded ? 'w-[240px]' : 'w-[100px]'} bg-slate-700 min-h-screen text-sm text-white font-medium font-primary`}>
             {/* logo */}
             <div className='flex justify-center w-full pt-8'>
                 <img src={Logo} alt="logo" className='h-[30px]' />
