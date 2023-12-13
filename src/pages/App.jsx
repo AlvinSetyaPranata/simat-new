@@ -1,10 +1,10 @@
-import Navbar from '../components/Navbar'
+import Sidebar from "../components/Organisms/Sidebar"
 
 function App() {
 
   return (
     <>
-     <Navbar />
+     <Sidebar />
      <h1>Hello worlds</h1>
     </>
   )

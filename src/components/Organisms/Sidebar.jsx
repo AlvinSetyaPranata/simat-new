@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Logo from '../assets/logo-light.png'
-import SideDropdown from './Molecules/SideDropdown'
+import Logo from '../../assets/logo-light.png'
+import SideDropdown from '../Molecules/SideDropdown'
 
-export default function Navbar() {
+export default function Sidebar() {
 
     const [active, setActive] = useState(0)
 
