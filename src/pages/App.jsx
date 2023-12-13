@@ -10,7 +10,7 @@ function App() {
      <Sidebar expanded={sidebarExpanded}/>
      <div>
       <Navbar onClick={() => setSidebarExpanded(state => !state)} />
-      <div>
+      <div className="pt-4 px-4">
         <p>Hello worlds</p>
       </div>
      </div>
