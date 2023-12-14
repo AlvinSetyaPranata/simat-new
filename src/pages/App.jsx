@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="flex">
      <Sidebar expanded={sidebarExpanded}/>
-     <div>
+     <div className="w-full">
       <Navbar onClick={() => setSidebarExpanded(state => !state)} />
       <div className="pt-4 px-4">
         <p>Hello worlds</p>
