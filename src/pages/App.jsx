@@ -6,13 +6,17 @@ function App() {
   const [sidebarExpanded, setSidebarExpanded] = useState(false)
 
   return (
-    <div className="flex">
+    <div className="flex font-primary">
      <Sidebar expanded={sidebarExpanded}/>
      <div className="w-full">
       <Navbar onClick={() => setSidebarExpanded(state => !state)} />
-      <div className="pt-4 px-4">
-        <p>Hello worlds</p>
+      
+      {/* content */}
+      <div className="p-6">
+        <h1 className="font-medium">Dashboard</h1>
       </div>
+
+
      </div>
     </div>
   )
