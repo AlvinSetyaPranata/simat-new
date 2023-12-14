@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ThemeToogle from './ThemeToogle'
+import ThemeToogle from '../Atoms/ThemeToogle'
 
 export default function Navbar({ onClick }) {
 
