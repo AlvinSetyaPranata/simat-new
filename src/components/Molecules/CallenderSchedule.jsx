@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import AcademicCallendar from '../Atoms/AcademicCallendar'
 
 export default function CallenderSchedule() {
@@ -19,7 +19,11 @@ export default function CallenderSchedule() {
         "December"
     ]
 
-    const onDateClick = (date, month, year) => setDate(`${months[month]} ${date}`)
+    const onDateClick = (date, month, year) => {
+      const dateNow = new Date().getDate()
+
+      setDate(`${months[month]} ${date ==  dateNow ? 'Today' : date  }`)
+    }
 
 
 

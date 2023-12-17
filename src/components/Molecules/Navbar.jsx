@@ -43,7 +43,7 @@ export default function Navbar({ onClick }) {
                     </button>
 
                     {/* options popover */}
-                    <div className={`bg-white rounded-md py-3 p-4 absolute right-1 top-12 text-sm w-max shadow-2xl ring-1 ring-black ring-opacity-5 ${accountBoxActive ? 'grid' : 'hidden'} z-30`}>
+                    <div className={`bg-white rounded-md py-3 px-6 absolute right-1 top-12 text-sm w-max shadow-2xl ring-1 ring-black ring-opacity-5 ${accountBoxActive ? 'grid' : 'hidden'} z-30`}>
                         <p className='w-full font-semibold'>Hai, Alvin</p>
 
                         <div className='grid mt-4 gap-2'>
