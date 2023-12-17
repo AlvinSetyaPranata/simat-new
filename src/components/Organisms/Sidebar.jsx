@@ -17,6 +17,12 @@ export default function Sidebar({ expanded }) {
     const isActive = (id) => active == id ? true : false
 
 
+    // Sidebar Buttons
+
+    // Perkuliahan => Jadwal mengajar, daftar kelas, daftar mahasiswa, abensi
+
+    // ['Jadwal Mengajar', 'Daftar Kelas', 'Daftar Mahasiswa', 'Absensi']
+
     return (
         <div className={`${expanded ? 'w-[240px]' : 'w-0'} transition-all duration-500 ease-in-out bg-slate-700 min-h-screen text-sm text-white font-medium font-primary`}>
             {/* group for hidden whenever its not expanded */}
@@ -29,8 +35,8 @@ export default function Sidebar({ expanded }) {
                 {/* nav-content */}
 
                 <div className="pt-12">
-                    <SideDropdown buttonProps={{ onClick: () => handleOnClick(1), active: isActive(1) }} subMenus={['Jadwal Mengajar', 'Daftar Kelas', 'Daftar Mahasiswa', 'Absensi']} />
-                    <SideDropdown buttonProps={{ onClick: () => handleOnClick(2), active: isActive(2) }} subMenus={['Jadwal Mengajar', 'Daftar Kelas', 'Daftar Mahasiswa']} />
+                    <SideDropdown buttonProps={{ onClick: () => handleOnClick(1), active: isActive(1) }} subMenus={{'/schedule' : 'Jadwal Mengajar', '/class-list' : 'Daftar Kelas', '/student-list' : 'Daftar Mahasiswa', '/absenteeism' : 'Absensi'}} />
+                  
                 </div>
             </div>
         </div>
