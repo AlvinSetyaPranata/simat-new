@@ -1,7 +1,7 @@
 import Sidebar from "../components/Organisms/Sidebar"
 import Navbar from "../components/Molecules/Navbar"
 import { useState } from "react"
-import AcademicCallendar from "../components/Atoms/AcademicCallendar"
+import CallenderSchedule from "../components/Molecules/CallenderSchedule"
 
 function App() {
   const [sidebarExpanded, setSidebarExpanded] = useState(false)
@@ -63,7 +63,7 @@ function App() {
           {/* callender universitas */}
           <section>
             <h1 className="font-medium text-xl mb-8">Kalender Akademik</h1>
-            <AcademicCallendar />
+            <CallenderSchedule />
           </section>
 
 
