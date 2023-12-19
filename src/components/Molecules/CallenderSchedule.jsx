@@ -20,9 +20,10 @@ export default function CallenderSchedule() {
     ]
 
     const onDateClick = (date, month, year) => {
+
       const dateNow = new Date().getDate()
 
-      setDate(`${months[month]} ${date ==  dateNow ? 'Today' : date  }`)
+      setDate(`${months[month - 1]} ${date ==  dateNow ? 'Today' : date  }`)
     }
 
 
@@ -33,7 +34,7 @@ export default function CallenderSchedule() {
             <h3 className='font-medium mb-2'>{date}</h3>
             <p className='text-gray-400'>Tidak ada event tersedia</p>
         </div>
-        <AcademicCallendar onDateClick={onDateClick}/>
+        <AcademicCallendar nextAction={onDateClick}/>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useReducer } from 'react'
 
-export default function AcademicCallendar({onDateClick}) {
+export default function AcademicCallendar({nextAction}) {
     const callendarReducer = (state, action) => {
         switch (action.type) {
             case "changeMonth":
@@ -17,7 +17,7 @@ export default function AcademicCallendar({onDateClick}) {
             case "changeDate":
                 return { year: state.year, month: state.month, datesInMonth: action.value }
                 
-                case "changeSelectedDate":
+            case "changeSelectedDate":
                 return { year: state.year, month: state.month, datesInMonth: action.value, selectedDate: action.value }
 
         }
@@ -75,7 +75,7 @@ export default function AcademicCallendar({onDateClick}) {
     }, [state.month, state.year])
 
 
-    useEffect(() => {console.log(state.datesInMonth[0])}, [state.datesInMonth])
+    useEffect(() => {console.log(state.datesInMonth[0])}, [state.month])
 
 
     const updateMonth = (condition) => {
@@ -85,6 +85,16 @@ export default function AcademicCallendar({onDateClick}) {
         } else if (condition == "decrease") {
             return dispatch({ type: "changeMonth", value: state.month - 1 })
         }
+    }
+
+
+    const onDateClick = (date, month, year, type) => {
+        if (type == "next") {
+            dispatch({type: "changeMonth", value: month + 1})
+        } else if (type == "prev") {
+            dispatch({type: "changeMonth", value: month - 1})
+        }
+        nextAction(date, month, year)
     }
 
     // shadow-2xl ring-1 ring-black ring-opacity-5
@@ -125,19 +135,19 @@ export default function AcademicCallendar({onDateClick}) {
 
                 {/* date in previous month */}
                 {state.datesInMonth[0] && state.datesInMonth[0].map((date, key) => (
-                    <button className={`rounded-full grid place-items-center w-12 h-12 ${currentDate == date && currentMonth == state.month ? 'text-white bg-blue-500' : 'text-gray-500 bg-white hover:bg-gray-200'}`} key={key} onClick={() => onDateClick(date, state.month, state.year)}>{date}</button>
+                    <button className={`rounded-full grid place-items-center w-12 h-12 ${currentDate == date && currentMonth == state.month ? 'text-white bg-blue-500' : 'text-gray-500 bg-white hover:bg-gray-200'}`} key={key} onClick={() => onDateClick(date, state.month, state.year, "prev")}>{date}</button>
                 ))
                 }
 
                 {/* dates in current month */}
                 {state.datesInMonth[1] && state.datesInMonth[1].map((date, key) => (
-                    <button className={`rounded-full grid place-items-center w-12 h-12 ${currentDate == date && currentMonth == state.month ? 'text-white bg-blue-500' : 'text-black bg-white hover:bg-gray-200'}`} key={key} onClick={() => onDateClick(date, state.month, state.year)}>{date}</button>
+                    <button className={`rounded-full grid place-items-center w-12 h-12 ${currentDate == date && currentMonth == state.month ? 'text-white bg-blue-500' : 'text-black bg-white hover:bg-gray-200'}`} key={key} onClick={() => onDateClick(date, state.month, state.year, "")}>{date}</button>
                 ))
                 }
 
                 {/* dates in next month */}
                 {state.datesInMonth[2] && state.datesInMonth[2].map((date, key) => (
-                    <button className={`rounded-full grid place-items-center w-12 h-12 ${currentDate == date && currentMonth == state.month ? 'text-white bg-blue-500' : 'text-gray-500 bg-white hover:bg-gray-200'}`} key={key} onClick={() => onDateClick(date, state.month, state.year)}>{date}</button>
+                    <button className={`rounded-full grid place-items-center w-12 h-12 ${currentDate == date && currentMonth == state.month ? 'text-white bg-blue-500' : 'text-gray-500 bg-white hover:bg-gray-200'}`} key={key} onClick={() => onDateClick(date, state.month, state.year, "next")}>{date}</button>
                 ))
                 }
 

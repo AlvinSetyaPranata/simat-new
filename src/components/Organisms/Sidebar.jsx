@@ -35,7 +35,7 @@ export default function Sidebar({ expanded }) {
                 {/* nav-content */}
 
                 <div className="pt-12">
-                    <SideDropdown buttonProps={{ onClick: () => handleOnClick(1), active: isActive(1) }} subMenus={{'/schedule' : 'Jadwal Mengajar', '/class-list' : 'Daftar Kelas', '/student-list' : 'Daftar Mahasiswa', '/absenteeism' : 'Absensi'}} />
+                    <SideDropdown buttonProps={{ onClick: () => handleOnClick(1), active: isActive(1) }} subMenus={{'/' : 'Dasbor', '/schedule' : 'Jadwal Mengajar', '/class-list' : 'Daftar Kelas', '/student-list' : 'Daftar Mahasiswa', '/absence' : 'Absensi'}} />
                   
                 </div>
             </div>
